@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command GeneralTools</Text>
+    <Description>Some description for GeneralTools</Description>
+    <Assembly>GeneralTools.dll</Assembly>
+    <FullClassName>GeneralTools.Command</FullClassName>
+    <ClientId>7911d4ae-d90d-4575-9d3e-b10cf1f40578</ClientId>
+    <VendorId>Christian Pallaria</VendorId>
+    <VendorDescription>@Realized by Christian Pallaria - All rigth reserved @</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application GeneralTools</Name>
+    <Assembly>GeneralTools.dll</Assembly>
+    <FullClassName>GeneralTools.App</FullClassName>
+    <ClientId>d9eec234-43a8-49d0-90cc-fbbc69c4107b</ClientId>
+    <VendorId>Christian Pallaria</VendorId>
+    <VendorDescription>@Realized by Christian Pallaria - All rigth reserved @</VendorDescription>
+  </AddIn>
+</RevitAddIns>
