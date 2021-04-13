@@ -19,7 +19,7 @@ namespace GeneralTools
     }
 
 
-    public class Request
+    public class RequestLineStyles
     {
         // Storing the value as a plain Int makes using the interlocking mechanism simpler
         private int m_request = (int)RequestId.None;

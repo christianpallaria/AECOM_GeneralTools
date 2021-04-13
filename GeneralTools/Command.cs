@@ -20,7 +20,7 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandClearInstances : IExternalCommand
     {
-        App app = new App();
+        Application app = new Application();
 
         public Result Execute(
           ExternalCommandData commandData,
@@ -42,7 +42,6 @@ namespace GeneralTools
 
             //    return Result.Succeeded;
 
-            //COMMENT ADDED TO TEST GITHUB
 
             {
                 try
@@ -64,7 +63,7 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandLineStyles : IExternalCommand
     {
-        App app = new App();
+        Application app = new Application();
 
         public Result Execute(
           ExternalCommandData commandData,
@@ -90,7 +89,7 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandLinePatterns : IExternalCommand
     {
-        App app = new App();
+        Application app = new Application();
 
         public Result Execute(
           ExternalCommandData commandData,

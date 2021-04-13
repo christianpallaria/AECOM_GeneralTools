@@ -57,17 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
-    <Compile Include="Request.cs" />
-    <Compile Include="RequestHandler.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="RequestLineStyles.cs" />
+    <Compile Include="RequestHandlerLineStyle.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="DataTypes.cs" />
-    <Compile Include="Forms\LineStyles.cs">
+    <Compile Include="Forms\LineStylesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LineStyles.Designer.cs">
-      <DependentUpon>LineStyles.cs</DependentUpon>
+    <Compile Include="Forms\LineStylesForm.Designer.cs">
+      <DependentUpon>LineStylesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LinePatterns.cs">
       <SubType>Form</SubType>
@@ -107,8 +107,8 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Forms\LineStyles.resx">
-      <DependentUpon>LineStyles.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LineStylesForm.resx">
+      <DependentUpon>LineStylesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClearInstances.resx">
       <DependentUpon>ClearInstances.cs</DependentUpon>

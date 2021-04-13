@@ -14,7 +14,7 @@ namespace GeneralTools
 {
     public partial class LinePatternsForm : System.Windows.Forms.Form
     {
-        UIApplication mUiapp = null;
+        //UIApplication mUiapp = null;
         Document mDoc = null;
 
         CommonFunctions CommFun = new CommonFunctions();
