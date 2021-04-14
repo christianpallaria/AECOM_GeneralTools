@@ -20,13 +20,9 @@ namespace GeneralTools
         private ExternalEvent _exEvent;
         private RequestHandlerLineStyles _handler;
 
-        public LineStylesForm()
-        {
-            InitializeComponent();
-        }
-
         public LineStylesForm(ExternalEvent exEvent, RequestHandlerLineStyles handler)
         {
+            InitializeComponent();
             this._exEvent = exEvent;
             this._handler = handler;
         }

@@ -88,8 +88,6 @@ namespace GeneralTools
                 m_MyFormClearInstance = new ClearInstancesForm();
                 m_MyFormClearInstance.Show();
 
-                // if we have a dialog, we need Idling too
-                //uiapp.Idling += IdlingHandler;
             }
         }
 
@@ -120,8 +118,6 @@ namespace GeneralTools
                 m_MyFormLinePatterns = new LinePatternsForm();
                 m_MyFormLinePatterns.Show();
 
-                // if we have a dialog, we need Idling too
-                //uiapp.Idling += IdlingHandlerLinePatterns;
             }
         }
 
