@@ -14,17 +14,25 @@ namespace GeneralTools
 {
     public partial class LineStylesForm : System.Windows.Forms.Form
     {
-        //UIApplication mUiapp = null;
-        private Document _mDoc = null;
+        private UIApplication _uiapp;
+        private UIDocument _uidoc;
+        private Application _app;
+        private Document _doc;
         private CommonFunctions _CommFun = new CommonFunctions();
         private ExternalEvent _exEvent;
-        private RequestHandlerLineStyles _handler;
+        private HandlerLineStyles _handler;
 
-        public LineStylesForm(ExternalEvent exEvent, RequestHandlerLineStyles handler)
+        public LineStylesForm(UIApplication uiapp, UIDocument uidoc, Autodesk.Revit.ApplicationServices.Application app, Document doc)
         {
             InitializeComponent();
-            this._exEvent = exEvent;
-            this._handler = handler;
+            _uiapp = uiapp;
+            _uidoc = uidoc;
+            Autodesk.Revit.ApplicationServices.Application _app = app;
+            _doc = doc;
+
+            _handler = new HandlerLineStyles(this, _app, doc);
+            _exEvent = ExternalEvent.Create(_handler);
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -34,16 +42,9 @@ namespace GeneralTools
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            string find = tbFilter.Text;
-            MakeRequest(RequestId.LineStylesDelete); //add this if you want to add multiple parameters: , tbFilter.Text, tbFind.Text, tbReplace.Text);
-        }
-
-        private void MakeRequest(RequestId request) //add this if you want to add multiple parameters: , params string[] parameters)
-        {
-            _handler.Request.Make(request); //add this if you want to add multiple parameters: , parameters);
             _exEvent.Raise();
-
         }
+
 
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
@@ -66,7 +67,7 @@ namespace GeneralTools
         {
             try
             {
-                RenLineStyles(_mDoc, tbFind.Text, tbReplace.Text, false);
+                //RenLineStyles(_mDoc, tbFind.Text, tbReplace.Text, false);
             }
             catch
             {

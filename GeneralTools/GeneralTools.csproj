@@ -58,8 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="RequestLineStyles.cs" />
-    <Compile Include="RequestHandlerLineStyle.cs" />
+    <Compile Include="HandlerLineStyle.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="DataTypes.cs" />

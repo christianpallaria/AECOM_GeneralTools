@@ -21,7 +21,6 @@ namespace GeneralTools
         public ___LinePatterns()
         {
             InitializeComponent();
-            RequestLineStyles Request = new RequestLineStyles();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

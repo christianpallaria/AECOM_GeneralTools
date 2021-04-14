@@ -91,24 +91,24 @@ namespace GeneralTools
             }
         }
 
-        public void ShowFormLineStyles(UIApplication uiapp)
-        {
-            // If we do not have a dialog yet, create and show it
-            if (m_MyFormLineStyles == null || m_MyFormLineStyles.IsDisposed)
-            {
+        //public void ShowFormLineStyles(UIApplication uiapp)
+        //{
+        //    // If we do not have a dialog yet, create and show it
+        //    if (m_MyFormLineStyles == null || m_MyFormLineStyles.IsDisposed)
+        //    {
 
-                // A new handler to handle request posting by the dialog
-                RequestHandlerLineStyles handler = new RequestHandlerLineStyles();
+        //        // A new handler to handle request posting by the dialog
+        //        HandlerLineStyles handler = new RequestHandlerLineStyles();
 
-                // External Event for the dialog to use (to post requests)
-                ExternalEvent exEvent = ExternalEvent.Create(handler);
+        //        // External Event for the dialog to use (to post requests)
+        //        ExternalEvent exEvent = ExternalEvent.Create(handler);
 
 
-                m_MyFormLineStyles = new LineStylesForm(exEvent, handler);
-                m_MyFormLineStyles.Show();
+        //        m_MyFormLineStyles = new LineStylesForm(exEvent, handler);
+        //        m_MyFormLineStyles.Show();
 
-            }
-        }
+        //    }
+        //}
 
         public void ShowFormLinePatterns(UIApplication uiapp)
         {

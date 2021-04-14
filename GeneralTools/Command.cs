@@ -63,17 +63,30 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandLineStyles : IExternalCommand
     {
-        Application app = new Application();
+        public LineStylesForm lineStyleForm = null;
 
         public Result Execute(
           ExternalCommandData commandData,
           ref string message,
           ElementSet elements)
         {
+            UIApplication uiapp = commandData.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
+            Document doc = uidoc.Document;
+
             {
                 try
                 {
-                    app.ShowFormLineStyles(commandData.Application);
+                    if (lineStyleForm == null)
+                    {
+                        lineStyleForm = new LineStylesForm(uiapp, uidoc, app, doc);
+                        lineStyleForm.Show();
+                    }
+                    else
+                    {
+                        lineStyleForm.Show();
+                    }
 
                     return Result.Succeeded;
                 }

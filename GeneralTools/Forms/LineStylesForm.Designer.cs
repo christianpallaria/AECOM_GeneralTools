@@ -78,6 +78,7 @@
             // 
             // tbFilter
             // 
+            this.tbFilter.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.tbFilter.Location = new System.Drawing.Point(12, 100);
             this.tbFilter.Name = "tbFilter";
             this.tbFilter.Size = new System.Drawing.Size(357, 20);
@@ -213,7 +214,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbFilter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton rbKeep;
@@ -224,5 +224,6 @@
         private System.Windows.Forms.Button btnOK1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbFind;
+        public System.Windows.Forms.TextBox tbFilter;
     }
 }
