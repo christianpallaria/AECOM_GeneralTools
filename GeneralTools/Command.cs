@@ -20,33 +20,30 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandClearInstances : IExternalCommand
     {
-        Application app = new Application();
+        public ClearInstancesForm clearInstancesForm = null;
 
         public Result Execute(
           ExternalCommandData commandData,
           ref string message,
           ElementSet elements)
         {
-            //    UIApplication uiapp = commandData.Application;
-            //    UIDocument uidoc = uiapp.ActiveUIDocument;
-            //    Application app = uiapp.Application;
-            //    Document doc = uidoc.Document;
-
-            //    // Access current selection
-
-            //    Selection sel = uidoc.Selection;
-
-            //    ClearInstances myform = new ClearInstances(uiapp);
-
-            //    myform.ShowDialog();
-
-            //    return Result.Succeeded;
-
+            UIApplication uiapp = commandData.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
+            Document doc = uidoc.Document;
 
             {
                 try
                 {
-                    app.ShowFormClearInst(commandData.Application);
+                    if (clearInstancesForm == null)
+                    {
+                        clearInstancesForm = new ClearInstancesForm(uiapp, uidoc, app, doc);
+                        clearInstancesForm.Show();
+                    }
+                    else
+                    {
+                        clearInstancesForm.Show();
+                    }
 
                     return Result.Succeeded;
                 }
@@ -56,7 +53,6 @@ namespace GeneralTools
                     return Result.Failed;
                 }
             }
-
         }
     }
 
@@ -102,17 +98,30 @@ namespace GeneralTools
     [Transaction(TransactionMode.Manual)]
     public class CommandLinePatterns : IExternalCommand
     {
-        Application app = new Application();
+        public LinePatternsForm linePatternForm = null;
 
         public Result Execute(
           ExternalCommandData commandData,
           ref string message,
           ElementSet elements)
         {
+            UIApplication uiapp = commandData.Application;
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
+            Document doc = uidoc.Document;
+
             {
                 try
                 {
-                    app.ShowFormLinePatterns(commandData.Application);
+                    if (linePatternForm == null)
+                    {
+                        linePatternForm = new LinePatternsForm(uiapp, uidoc, app, doc);
+                        linePatternForm.Show();
+                    }
+                    else
+                    {
+                        linePatternForm.Show();
+                    }
 
                     return Result.Succeeded;
                 }

@@ -1,48 +1,54 @@
-﻿using Autodesk.Revit.UI;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autodesk.Revit.DB;
-using System.Security.Cryptography.X509Certificates;
+using Autodesk.Revit.UI;
 
 namespace GeneralTools
 {
-    public partial class ClearInstancesForm : System.Windows.Forms.Form
+    public class HandlerClearInstances : IExternalEventHandler
     {
-        //UIApplication mUiapp = null;
-        Document mDoc = null;
+        private Document mDoc = null;
+        private ClearInstancesForm clrFrm;
+        private Autodesk.Revit.ApplicationServices.Application app;
+        private string filter = "";
+
+
         CommonFunctions CommFun = new CommonFunctions();
 
-        public ClearInstancesForm ()//(UIApplication pUiapp)
+
+
+        public HandlerClearInstances(ClearInstancesForm _clearInstancesForm, Autodesk.Revit.ApplicationServices.Application _app, Autodesk.Revit.DB.Document _doc)
         {
-            InitializeComponent();
-            //mUiapp = pUiapp;
-            //mDoc = mUiapp.ActiveUIDocument.Document;
+            this.clrFrm = _clearInstancesForm;
+            app = _app;
+            mDoc = _doc;
+
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        public void Execute(UIApplication app)
         {
-            this.Close();
+
+            filter = clrFrm.tbFilter.Text;
+
+            ClearInstances(mDoc, filter);
+
+            return;
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        public void ClearInstances(Document _doc, string _filter)
         {
-            // Modify document within a transaction
             try
             {
 
-                FilteredElementCollector ImportedInstancesCollector = new FilteredElementCollector(mDoc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType();
+                FilteredElementCollector ImportedInstancesCollector = new FilteredElementCollector(_doc).OfClass(typeof(ImportInstance)).WhereElementIsNotElementType();
 
                 int count = ImportedInstancesCollector.GetElementCount();
                 List<string> str = new List<string>();
 
-                using (Transaction tx = new Transaction(mDoc, "Clear All Imported DWG Instances"))
+                using (Transaction tx = new Transaction(_doc, "Clear All Imported DWG Instances"))
                 {
                     tx.Start();
 
@@ -53,7 +59,6 @@ namespace GeneralTools
                     else
                     {
 
-                        string filter = tbFilter.Text;
                         List<ElementId> Ids = new List<ElementId>();
 
                         foreach (Element c in ImportedInstancesCollector)
@@ -61,14 +66,14 @@ namespace GeneralTools
 
                             Parameter n = c.get_Parameter(BuiltInParameter.IMPORT_SYMBOL_NAME);
 
-                         
-                            if (n.AsString().Contains(filter))
+
+                            if (n.AsString().Contains(_filter))
                             {
                                 Ids.Add(c.Id);
                             }
                         }
-                        mDoc.Delete(Ids);
-                        if (Ids.Count > 0) { MessageBox.Show(Ids.Count + " instances containing the word " + filter + " have been succesfully deleted!"); }
+                        _doc.Delete(Ids);
+                        if (Ids.Count > 0) { MessageBox.Show(Ids.Count + " instances containing the word " + _filter + " have been succesfully deleted!"); }
                         else { MessageBox.Show("None of the imported instances in the project match with the filter!"); }
 
                     }
@@ -82,6 +87,15 @@ namespace GeneralTools
             {
                 MessageBox.Show("Cannot collect imported instances!", "Warning");
             }
+
+
+        }
+
+        public string GetName()
+        {
+            return "Clear Instances";
         }
     }
+
+
 }

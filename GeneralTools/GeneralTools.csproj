@@ -58,7 +58,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
-    <Compile Include="HandlerLineStyle.cs" />
+    <Compile Include="Handlers\HandlerRenameLinePatterns.cs" />
+    <Compile Include="Handlers\HandlerClearInstances.cs" />
+    <Compile Include="Handlers\HandlerLinePatterns.cs" />
+    <Compile Include="Handlers\HandlerLineStyle.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="CommonFunctions.cs" />
     <Compile Include="DataTypes.cs" />
@@ -68,17 +71,17 @@
     <Compile Include="Forms\LineStylesForm.Designer.cs">
       <DependentUpon>LineStylesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LinePatterns.cs">
+    <Compile Include="Forms\LinePatternsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\LinePatterns.Designer.cs">
-      <DependentUpon>LinePatterns.cs</DependentUpon>
+    <Compile Include="Forms\LinePatternsForm.Designer.cs">
+      <DependentUpon>LinePatternsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ClearInstances.cs">
+    <Compile Include="Forms\ClearInstancesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ClearInstances.Designer.cs">
-      <DependentUpon>ClearInstances.cs</DependentUpon>
+    <Compile Include="Forms\ClearInstancesForm.Designer.cs">
+      <DependentUpon>ClearInstancesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\____RenameLineStyles.cs">
@@ -109,11 +112,11 @@
     <EmbeddedResource Include="Forms\LineStylesForm.resx">
       <DependentUpon>LineStylesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ClearInstances.resx">
-      <DependentUpon>ClearInstances.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ClearInstancesForm.resx">
+      <DependentUpon>ClearInstancesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\LinePatterns.resx">
-      <DependentUpon>LinePatterns.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\LinePatternsForm.resx">
+      <DependentUpon>LinePatternsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\____RenameLineStyles.resx">
       <DependentUpon>____RenameLineStyles.cs</DependentUpon>

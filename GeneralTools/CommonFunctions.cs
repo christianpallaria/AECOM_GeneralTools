@@ -13,16 +13,16 @@ namespace GeneralTools
 {
     class CommonFunctions
     {
-        public List<ElementId> Ids(FilteredElementCollector _coll, RadioButton _rbKeep, string Filter)
+        public List<ElementId> Ids(FilteredElementCollector _coll, bool _rbKeep, string Filter)
         {
-            if (_rbKeep.Checked)
+            if (_rbKeep)
             {
-                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => !x.GetLinePattern().Name.Contains(Filter)).Select(x => x.Id).ToList();
+                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => !x.GetLinePattern().Name.ToUpper().Contains(Filter)).Select(x => x.Id).ToList();
                 return _lstIds;
             }
             else
             {
-                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => x.GetLinePattern().Name.Contains(Filter)).Select(x => x.Id).ToList();
+                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => x.GetLinePattern().Name.ToUpper().Contains(Filter)).Select(x => x.Id).ToList();
                 return _lstIds;
             }
 

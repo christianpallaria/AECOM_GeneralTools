@@ -104,11 +104,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbFilter;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox tbFilter;
     }
 }

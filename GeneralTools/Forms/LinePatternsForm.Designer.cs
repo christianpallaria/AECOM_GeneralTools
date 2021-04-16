@@ -74,7 +74,6 @@
             this.tbFilter.Size = new System.Drawing.Size(372, 20);
             this.tbFilter.TabIndex = 4;
             this.tbFilter.Text = "IMPORT";
-            this.tbFilter.TextChanged += new System.EventHandler(this.tbFilter_TextChanged);
             // 
             // rbKeep
             // 
@@ -85,7 +84,6 @@
             this.rbKeep.TabIndex = 8;
             this.rbKeep.Text = "Keep line patterns containing the filter word";
             this.rbKeep.UseVisualStyleBackColor = true;
-            this.rbKeep.CheckedChanged += new System.EventHandler(this.rbKeep_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -98,7 +96,6 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Delete line patterns containing the filter word";
             this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -193,7 +190,7 @@
             this.tbFind.TabIndex = 19;
             this.tbFind.Text = "insert the word to be  find";
             // 
-            // DeletePatterns
+            // LinePatternsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -201,7 +198,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "DeletePatterns";
+            this.Name = "LinePatternsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Line Patterns";
             this.groupBox1.ResumeLayout(false);
@@ -216,17 +213,17 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.TextBox tbFilter;
-        private System.Windows.Forms.RadioButton rbKeep;
-        private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbReplace;
         private System.Windows.Forms.Button btnCancel1;
         private System.Windows.Forms.Button btnOK1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbFind;
+        public System.Windows.Forms.TextBox tbFilter;
+        public System.Windows.Forms.RadioButton rbKeep;
+        public System.Windows.Forms.RadioButton radioButton2;
+        public System.Windows.Forms.TextBox tbReplace;
+        public System.Windows.Forms.TextBox tbFind;
     }
 }

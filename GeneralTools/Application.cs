@@ -80,17 +80,6 @@ namespace GeneralTools
             return Result.Succeeded;
         }
 
-        public void ShowFormClearInst(UIApplication uiapp)
-        {
-            // If we do not have a dialog yet, create and show it
-            if (m_MyFormClearInstance == null || m_MyFormClearInstance.IsDisposed)
-            {
-                m_MyFormClearInstance = new ClearInstancesForm();
-                m_MyFormClearInstance.Show();
-
-            }
-        }
-
         //public void ShowFormLineStyles(UIApplication uiapp)
         //{
         //    // If we do not have a dialog yet, create and show it
@@ -110,16 +99,6 @@ namespace GeneralTools
         //    }
         //}
 
-        public void ShowFormLinePatterns(UIApplication uiapp)
-        {
-            // If we do not have a dialog yet, create and show it
-            if (m_MyFormLinePatterns == null || m_MyFormLinePatterns.IsDisposed)
-            {
-                m_MyFormLinePatterns = new LinePatternsForm();
-                m_MyFormLinePatterns.Show();
-
-            }
-        }
 
         //public void IdlingHandlerLinePatterns(object sender, IdlingEventArgs args)
         //{
