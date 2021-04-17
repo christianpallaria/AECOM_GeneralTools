@@ -13,16 +13,16 @@ namespace GeneralTools
 {
     class CommonFunctions
     {
-        public List<ElementId> Ids(FilteredElementCollector _coll, bool _rbKeep, string Filter)
+        public List<ElementId> Ids(FilteredElementCollector _coll, bool _rbKeep, string _filter)
         {
             if (_rbKeep)
             {
-                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => !x.GetLinePattern().Name.ToUpper().Contains(Filter)).Select(x => x.Id).ToList();
+                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => !x.GetLinePattern().Name.ToUpper().Contains(_filter.ToUpper())).Select(x => x.Id).ToList();
                 return _lstIds;
             }
             else
             {
-                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => x.GetLinePattern().Name.ToUpper().Contains(Filter)).Select(x => x.Id).ToList();
+                List<ElementId> _lstIds = _coll.Cast<LinePatternElement>().Where(x => x.GetLinePattern().Name.ToUpper().Contains(_filter.ToUpper())).Select(x => x.Id).ToList();
                 return _lstIds;
             }
 

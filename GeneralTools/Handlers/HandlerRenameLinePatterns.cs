@@ -57,7 +57,7 @@ namespace GeneralTools
                 }
                 else
                 {
-                    patternElement = coll.Cast<LinePatternElement>().Where(c => c.Name.Contains(_strFind)).ToList();
+                    patternElement = coll.Cast<LinePatternElement>().Where(c => c.Name.ToUpper().Contains(_strFind.ToUpper())).ToList();
                 }
 
                 foreach (LinePatternElement cat in patternElement)

@@ -15,6 +15,7 @@ namespace GeneralTools
         private LineStylesForm lStFrm;
         private Autodesk.Revit.ApplicationServices.Application app;
         private string _tbFilter = "";
+        bool _rbKeep = false;
 
         public HandlerLineStyles(LineStylesForm _lineStyleForm, Autodesk.Revit.ApplicationServices.Application _app, Autodesk.Revit.DB.Document _doc)
         {
@@ -28,8 +29,9 @@ namespace GeneralTools
         public void Execute(UIApplication app)
         {
             _tbFilter = lStFrm.tbFilter.Text;
+            _rbKeep = lStFrm.rbKeep.Checked;
 
-            DelLineStyles(mDoc, _tbFilter, true);
+            DelLineStyles(mDoc, _tbFilter, _rbKeep);
 
             //switch (Request.Take())
             //{
@@ -78,23 +80,24 @@ namespace GeneralTools
             return "LineStyles";
         }
 
-        private void DelLineStyles(Document pDoc, string pstrFind, bool pblnMatchCase)
+        private void DelLineStyles(Document pDoc, string pstrFind, bool _rbKeep)
         {
             Category linesCat = pDoc.Settings.Categories.get_Item(BuiltInCategory.OST_Lines);
             IList<Category> catList;
             List<ElementId> IdsToDelete = new List<ElementId>();
+            bool err = true;
 
             using (Transaction tr = new Transaction(pDoc, "Delete Linestyle"))
             {
                 tr.Start();
 
-                if (pblnMatchCase)
+                if (_rbKeep)
                 {
-                    catList = linesCat.SubCategories.Cast<Category>().Where(c => c.Name.ToUpper().Contains(pstrFind.ToUpper())).ToList();
+                    catList = linesCat.SubCategories.Cast<Category>().Where(c => !c.Name.ToUpper().Contains(pstrFind.ToUpper())).ToList();
                 }
                 else
                 {
-                    catList = linesCat.SubCategories.Cast<Category>().Where(c => c.Name.Contains(pstrFind)).ToList();
+                    catList = linesCat.SubCategories.Cast<Category>().Where(c => c.Name.ToUpper().Contains(pstrFind.ToUpper())).ToList();
                 }
 
 
@@ -114,12 +117,13 @@ namespace GeneralTools
                 catch
                 {
                     MessageBox.Show("Cannot delete system Line Styles");
+                    err = false;
                 }
 
 
                 tr.Commit();
 
-                if (catList.Count > 0)
+                if (catList.Count > 0 && err)
                 {
                     MessageBox.Show(catList.Count + " Line Styles containing the word" + pstrFind + " have been succesfully deleted");
                 }

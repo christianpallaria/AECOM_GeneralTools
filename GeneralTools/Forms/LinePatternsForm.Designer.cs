@@ -33,7 +33,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.tbFilter = new System.Windows.Forms.TextBox();
             this.rbKeep = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbDelete = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -85,23 +85,23 @@
             this.rbKeep.Text = "Keep line patterns containing the filter word";
             this.rbKeep.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbDelete
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(14, 69);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(234, 17);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Delete line patterns containing the filter word";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbDelete.AutoSize = true;
+            this.rbDelete.Checked = true;
+            this.rbDelete.Location = new System.Drawing.Point(14, 69);
+            this.rbDelete.Name = "rbDelete";
+            this.rbDelete.Size = new System.Drawing.Size(234, 17);
+            this.rbDelete.TabIndex = 9;
+            this.rbDelete.TabStop = true;
+            this.rbDelete.Text = "Delete line patterns containing the filter word";
+            this.rbDelete.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rbDelete);
             this.groupBox1.Controls.Add(this.tbFilter);
             this.groupBox1.Controls.Add(this.rbKeep);
             this.groupBox1.Controls.Add(this.btnOK);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox tbFilter;
         public System.Windows.Forms.RadioButton rbKeep;
-        public System.Windows.Forms.RadioButton radioButton2;
+        public System.Windows.Forms.RadioButton rbDelete;
         public System.Windows.Forms.TextBox tbReplace;
         public System.Windows.Forms.TextBox tbFind;
     }

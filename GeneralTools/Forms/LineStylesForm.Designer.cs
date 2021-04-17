@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbFilter = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbDelete = new System.Windows.Forms.RadioButton();
             this.rbKeep = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.rbDelete);
             this.groupBox1.Controls.Add(this.rbKeep);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.tbFilter);
@@ -100,17 +100,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DELETE LINE STYLES";
             // 
-            // radioButton2
+            // rbDelete
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(12, 69);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(222, 17);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Delete line styles containing the filter word";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbDelete.AutoSize = true;
+            this.rbDelete.Checked = true;
+            this.rbDelete.Location = new System.Drawing.Point(12, 69);
+            this.rbDelete.Name = "rbDelete";
+            this.rbDelete.Size = new System.Drawing.Size(222, 17);
+            this.rbDelete.TabIndex = 18;
+            this.rbDelete.TabStop = true;
+            this.rbDelete.Text = "Delete line styles containing the filter word";
+            this.rbDelete.UseVisualStyleBackColor = true;
             // 
             // rbKeep
             // 
@@ -215,8 +215,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton rbKeep;
+        private System.Windows.Forms.RadioButton rbDelete;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbReplace;
@@ -225,5 +224,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbFind;
         public System.Windows.Forms.TextBox tbFilter;
+        public System.Windows.Forms.RadioButton rbKeep;
     }
 }
